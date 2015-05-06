@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SDWebImageDownloader.h"
 #import "SDWebImageManager.h"
-
+#import "UIImage+ReMake.h"
 
 
 @interface UIImageView (SD)
