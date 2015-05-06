@@ -1,8 +1,8 @@
 //
-//  UIView+SDWebImage.h
+//  UIButton+SD.h
 //  CoreSDWebImage
 //
-//  Created by 冯成林 on 15/5/5.
+//  Created by 成林 on 15/5/6.
 //  Copyright (c) 2015年 muxi. All rights reserved.
 //
 
@@ -13,16 +13,16 @@
 
 
 
-@interface UIView (SDWebImage)
+@interface UIButton (SD)
 
 
 
 /**
-*  普通网络图片展示
-*
-*  @param urlStr  图片地址
-*  @param phImage 占位图片
-*/
+ *  普通网络图片展示
+ *
+ *  @param urlStr  图片地址
+ *  @param phImage 占位图片
+ */
 -(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage;
 
 
@@ -31,10 +31,10 @@
  *
  *  @param urlStr         图片地址
  *  @param phImage        占位图片
- *  @param progressBlock  进度
  *  @param completedBlock 完成
  */
--(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage progressBlock:(SDWebImageDownloaderProgressBlock)progressBlock completedBlock:(SDWebImageCompletionBlock)completedBlock;
+-(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage state:(UIControlState)state completedBlock:(SDWebImageCompletionBlock)completedBlock;
+
 
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "UIView+SDWebImage.h"
-
+#import "UIImageView+SD.h"
+#import "UIImage+ReMake.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageV;
+
 
 @end
 
@@ -18,6 +21,11 @@
 
 - (void)viewDidLoad {
 
+    UIImage *phI = [UIImage imageNamed:@"CoreSDWebImage.bundle/empty_picture"];
+    
+    phI = [phI remakeImageWithFullSize:self.view.bounds.size zoom:.6];
+    
+    [self.imageV imageWithUrlStr:nil phImage:phI];
 }
 
 @end
