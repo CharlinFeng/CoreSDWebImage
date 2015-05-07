@@ -21,9 +21,8 @@
 
 - (void)viewDidLoad {
 
-    UIImage *phI = [UIImage imageNamed:@"CoreSDWebImage.bundle/empty_picture"];
+    UIImage *phI = [UIImage phImageWithSize:self.view.bounds.size zoom:.6f];
     
-    phI = [phI remakeImageWithFullSize:self.view.bounds.size zoom:.6];
     
     [self.imageV imageWithUrlStr:nil phImage:phI];
 }

@@ -20,6 +20,11 @@
  */
 -(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage{
     
+    if(urlStr==nil) {
+        NSLog(@"错误：URL地址为空");
+        return;
+    }
+    
     NSURL *url=[NSURL URLWithString:urlStr];
     
     [self sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:phImage];
@@ -36,6 +41,11 @@
  *  @param completedBlock 完成
  */
 -(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage state:(UIControlState)state completedBlock:(SDWebImageCompletionBlock)completedBlock{
+    
+    if(urlStr==nil) {
+        NSLog(@"错误：URL地址为空");
+        return;
+    }
     
     NSURL *url=[NSURL URLWithString:urlStr];
     
