@@ -21,10 +21,6 @@
 
 - (void)viewDidLoad {
 
-    UIImage *phI = [UIImage phImageWithSize:self.view.bounds.size zoom:.6f];
-    
-    
-    [self.imageV imageWithUrlStr:nil phImage:phI];
 }
 
 @end

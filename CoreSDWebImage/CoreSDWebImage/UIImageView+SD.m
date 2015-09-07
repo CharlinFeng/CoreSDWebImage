@@ -8,50 +8,30 @@
 
 #import "UIImageView+SD.h"
 #import "UIImageView+WebCache.h"
-
+#import "UIImage+ReMake.h"
 
 @implementation UIImageView (SD)
 
-/**
- *  imageView展示网络图片
- *
- *  @param urlStr  图片地址
- *  @param phImage 占位图片
- */
--(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage{
-    
-    if(urlStr==nil) {
-        NSLog(@"错误：URL地址为空");
-        return;
-    }
+
+-(void)imageWithUrlStr:(NSString *)urlStr size:(CGSize)size scale:(CGFloat)scale{
     
     NSURL *url=[NSURL URLWithString:urlStr];
-        
-    [self sd_setImageWithURL:url placeholderImage:phImage];
+    
+    UIImage *h = [UIImage placeHolderImageWithSize:size scale:scale];
+    
+    [self sd_setImageWithURL:url placeholderImage:h];
 }
 
 
-
-/**
- *  带有进度的网络图片展示
- *
- *  @param urlStr         图片地址
- *  @param phImage        占位图片
- *  @param progressBlock  进度
- *  @param completedBlock 完成
- */
--(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage progressBlock:(SDWebImageDownloaderProgressBlock)progressBlock completedBlock:(SDWebImageCompletionBlock)completedBlock{
-    
-    if(urlStr==nil) {
-        NSLog(@"错误：URL地址为空");
-        return;
-    }
+-(void)imageWithUrlStr:(NSString *)urlStr size:(CGSize)size scale:(CGFloat)scale progressBlock:(SDWebImageDownloaderProgressBlock)progressBlock completedBlock:(SDWebImageCompletionBlock)completedBlock{
     
     NSURL *url=[NSURL URLWithString:urlStr];
     
-    SDWebImageOptions options = SDWebImageLowPriority | SDWebImageRetryFailed;
+    SDWebImageOptions options = SDWebImageLowPriority | SDWebImageRetryFailed | SDWebImageDownloaderProgressiveDownload;
 
-    [self sd_setImageWithURL:url placeholderImage:phImage options:options progress:progressBlock completed:completedBlock];
+    UIImage *h = [UIImage placeHolderImageWithSize:size scale:scale];
+    
+    [self sd_setImageWithURL:url placeholderImage:h options:options progress:progressBlock completed:completedBlock];
 }
 
 

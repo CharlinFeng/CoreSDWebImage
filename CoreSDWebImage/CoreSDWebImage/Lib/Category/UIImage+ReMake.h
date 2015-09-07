@@ -11,14 +11,11 @@
 @interface UIImage (ReMake)
 
 
--(UIImage *)remakeImageWithFullSize:(CGSize)fullSize zoom:(CGFloat)zoom;
+-(UIImage *)remakeImageWithFullSize:(CGSize)fullSize scale:(CGFloat)scale;
 
 
 
-/*
- *  生成一个默认的占位图片：bundle默认图片
- */
-+(UIImage *)phImageWithSize:(CGSize)fullSize zoom:(CGFloat)zoom;
++(UIImage *)placeHolderImageWithSize:(CGSize)fullSize scale:(CGFloat)scale;
 
 
 

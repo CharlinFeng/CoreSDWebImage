@@ -17,23 +17,11 @@
 
 
 
-/**
- *  普通网络图片展示
- *
- *  @param urlStr  图片地址
- *  @param phImage 占位图片
- */
--(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage;
+-(void)imageWithUrlStr:(NSString *)urlStr state:(UIControlState)state size:(CGSize)size scale:(CGFloat)scale;
 
 
-/**
- *  带有进度的网络图片展示
- *
- *  @param urlStr         图片地址
- *  @param phImage        占位图片
- *  @param completedBlock 完成
- */
--(void)imageWithUrlStr:(NSString *)urlStr phImage:(UIImage *)phImage state:(UIControlState)state completedBlock:(SDWebImageCompletionBlock)completedBlock;
+
+-(void)imageWithUrlStr:(NSString *)urlStr state:(UIControlState)state size:(CGSize)size scale:(CGFloat)scale progressBlock:(SDWebImageDownloaderProgressBlock)progressBlock completedBlock:(SDWebImageCompletionBlock)completedBlock;
 
 
 
